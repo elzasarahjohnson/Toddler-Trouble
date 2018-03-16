@@ -14,11 +14,19 @@
   let currentState: number;
 
   assetManifest = [
-    {id: "clickMeButton", src:"./Assets/images/clickMeButton.png"},
-    {id: "startButton", src:"./Assets/images/startButton.png"},
-    {id: "nextButton", src:"./Assets/images/nextButton.png"},
-    {id: "backButton", src:"./Assets/images/backButton.png"}
-  ];
+    { id: "clickMeButton", src: "./Assets/images/TodTroLogo.png" },
+    { id: "startButton", src: "./Assets/images/Buttons/Play1.png" },
+    { id: "nextButton", src: "./Assets/images/startButton.png" },
+    { id: "backButton", src: "./Assets/images/backButton.png" }
+];
+
+//assetManifest = [
+//    { id: "clickMeButton", src: "./Assets/images/clickMeButton.png" },
+//    { id: "startButton", src: "./Assets/images/startButton.png" },
+//    { id: "nextButton", src: "./Assets/images/nextButton.png" },
+//    { id: "backButton", src: "./Assets/images/backButton.png" }
+//];
+// preloads assets
 
   // preloads assets
   function Init():void {
