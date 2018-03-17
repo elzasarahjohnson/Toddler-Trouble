@@ -1,3 +1,9 @@
+//Abubakir Myrzaly - 300931945
+//Sushmita Nandalan - 300923159
+//ashley tjon-hing - 300744476
+//elza sarah johnson - 300911775
+
+
 /// <reference path="_references.ts"/>
 
 // IIFE - Immediately Invoked Function Expression
@@ -12,12 +18,14 @@
   let assetManifest: any[];
   let currentScene: objects.Scene;
   let currentState: number;
+  let debugCanvas: HTMLElement;
+  let gameCanvas: HTMLElement;
 
   assetManifest = [
     { id: "clickMeButton", src: "./Assets/images/TodTroLogo.png" },
     { id: "startButton", src: "./Assets/images/Buttons/Play1.png" },
     { id: "nextButton", src: "./Assets/images/startButton.png" },
-    { id: "backButton", src: "./Assets/images/backButton.png" }
+    { id: "backButton", src: "./Assets/images/Buttons/back1.png" }
 ];
 
 //assetManifest = [

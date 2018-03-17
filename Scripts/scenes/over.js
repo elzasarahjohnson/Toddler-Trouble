@@ -1,3 +1,7 @@
+//Abubakir Myrzaly - 300931945
+//Sushmita Nandalan - 300923159
+//ashley tjon-hing - 300744476
+//elza sarah johnson - 300911775
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -12,10 +16,10 @@ var scenes;
 (function (scenes) {
     var OverScene = /** @class */ (function (_super) {
         __extends(OverScene, _super);
-        // Public Properties
         // Constructor
         function OverScene(assetManager) {
             var _this = _super.call(this, assetManager) || this;
+            _this._backButtonClick = _this._backButtonClick.bind(_this);
             _this.Start();
             return _this;
         }
@@ -34,10 +38,10 @@ var scenes;
         };
         // This is where the fun happens
         OverScene.prototype.Main = function () {
-            // add the welcome label to the scene
+            // add the welcome,backButton,score,replay label to the scene
             this.addChild(this._overLabel);
-            // add the backButton to the scene
             this.addChild(this._backButton);
+            this.addChild(this._replayButton);
             // event listeners
             this._backButton.on("click", this._backButtonClick);
         };

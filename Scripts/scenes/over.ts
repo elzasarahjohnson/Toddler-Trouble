@@ -1,15 +1,23 @@
+//Abubakir Myrzaly - 300931945
+//Sushmita Nandalan - 300923159
+//ashley tjon-hing - 300744476
+//elza sarah johnson - 300911775
+
 module scenes {
   export class OverScene extends objects.Scene {
     // Private Instance Variables
+    private _scoreLabel: objects.Label;
     private _overLabel: objects.Label;
-    private _backButton: objects.Button;
-
-    // Public Properties
+    private _replayButton: objects.Button;
+    private _backButton: objects.Button
+    private _endScreenMusic: createjs.AbstractSoundInstance;
+    private _someScore: number;
 
     // Constructor
     constructor(assetManager: createjs.LoadQueue) {
       super(assetManager);
 
+      this._backButtonClick = this._backButtonClick.bind(this);
       this.Start();
     }
 
@@ -34,11 +42,10 @@ module scenes {
 
     // This is where the fun happens
     public Main(): void {
-      // add the welcome label to the scene
+      // add the welcome,backButton,score,replay label to the scene
       this.addChild(this._overLabel);
-
-      // add the backButton to the scene
       this.addChild(this._backButton);
+      this.addChild(this._replayButton)
 
       // event listeners
       this._backButton.on("click", this._backButtonClick);
