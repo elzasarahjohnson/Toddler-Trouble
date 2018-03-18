@@ -19,8 +19,9 @@
     assetManifest = [
         { id: "clickMeButton", src: "./Assets/images/TodTroLogo.png" },
         { id: "startButton", src: "./Assets/images/Buttons/Play1.png" },
-        { id: "nextButton", src: "./Assets/images/startButton.png" },
-        { id: "backButton", src: "./Assets/images/Buttons/back1.png" }
+        { id: "nextButton", src: "./Assets/images/Buttons/Select1.png" },
+        { id: "backButton", src: "./Assets/images/Buttons/back1.png" },
+        { id: "startMusic", src: "./Assets/audio/startMusic.mp3" }
     ];
     //assetManifest = [
     //    { id: "clickMeButton", src: "./Assets/images/clickMeButton.png" },
@@ -28,7 +29,6 @@
     //    { id: "nextButton", src: "./Assets/images/nextButton.png" },
     //    { id: "backButton", src: "./Assets/images/backButton.png" }
     //];
-    // preloads assets
     // preloads assets
     function Init() {
         console.log("Initialization Started...");

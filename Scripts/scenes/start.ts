@@ -7,7 +7,7 @@ module scenes {
 
   export class StartScene extends objects.Scene {
     // Private Instance Variables
-    private _welcomeLabel: objects.Label;
+    private _welcomeLabel: createjs.Bitmap;
     private _startButton: objects.Button;
     private _background: createjs.Bitmap;
     private _startScreenMusic: createjs.AbstractSoundInstance;
@@ -31,9 +31,11 @@ module scenes {
     // Initialize Game Variables and objects
     public Start(): void {
       console.log("Start Scene");
-      this._startScreenMusic = createjs.Sound.play("startSceneMusic");
+      this._startScreenMusic = createjs.Sound.play("startMusic");
+      this._startScreenMusic.loop = -1; // play forever
+      this._startScreenMusic.volume = 0.3;
       //this._background = new createjs.Bitmap(objects.Game.assetManager.getResult("startBackground"));
-      this._welcomeLabel = new objects.Label("Welcome", "60px", "Consolas", "#000000", 320, 240, true);
+      this._welcomeLabel = new createjs.Bitmap("./Assets/images/TodTroLogo.png");
       this._startButton = new objects.Button(this.assetManager, "startButton", 320, 340);
       this.Main();
     }

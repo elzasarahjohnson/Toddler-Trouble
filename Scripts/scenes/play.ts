@@ -45,7 +45,7 @@ module scenes {
       this._playerHealth = new objects.Label("Play Scene", "20px", "Consolas","#ff0000" , config.Screen.WIDTH*0.1, config.Screen.WIDTH*0.1, true);
 
       this._character = new objects.Character();
-      this._baby - new objects.Baby(this._character);
+      this._baby = new objects.Baby(this._character);
 
       this._keyboard = new managers.Keyboard(this._character);
 
