@@ -1,10 +1,13 @@
 var config;
 (function (config) {
-    var Scene;
-    (function (Scene) {
-        Scene[Scene["START"] = 0] = "START";
-        Scene[Scene["PLAY"] = 1] = "PLAY";
-        Scene[Scene["OVER"] = 2] = "OVER";
-    })(Scene = config.Scene || (config.Scene = {}));
+    var Scene = /** @class */ (function () {
+        function Scene() {
+        }
+        Scene.START = 0;
+        Scene.PLAY = 1;
+        Scene.END = 2;
+        return Scene;
+    }());
+    config.Scene = Scene;
 })(config || (config = {}));
 //# sourceMappingURL=scene.js.map

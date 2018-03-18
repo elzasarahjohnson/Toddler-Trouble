@@ -63,9 +63,9 @@
                 currentScene = new scenes.StartScene(assetManager);
                 break;
             case config.Scene.PLAY:
-                currentScene = new scenes.PlayScene(assetManager);
+                currentScene = new scenes.PlayScene(objects.Game.currentScene, assetManager);
                 break;
-            case config.Scene.OVER:
+            case config.Scene.END:
                 currentScene = new scenes.OverScene(assetManager);
                 break;
         }

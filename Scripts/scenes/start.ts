@@ -38,8 +38,9 @@ module scenes {
       this.Main();
     }
 
-    public Update(): void {
+    public Update() {
       //return this._currentScene;
+      return objects.Game.currentScene;
     }
 
     // This is where the fun happens
