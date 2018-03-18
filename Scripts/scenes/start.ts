@@ -40,7 +40,7 @@ module scenes {
 
     public Update() {
       //return this._currentScene;
-      return objects.Game.currentScene;
+      //return objects.Game.currentScene;
     }
 
     // This is where the fun happens

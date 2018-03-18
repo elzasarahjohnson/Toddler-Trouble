@@ -41,7 +41,7 @@ var scenes;
         };
         StartScene.prototype.Update = function () {
             //return this._currentScene;
-            return objects.Game.currentScene;
+            //return objects.Game.currentScene;
         };
         // This is where the fun happens
         StartScene.prototype.Main = function () {

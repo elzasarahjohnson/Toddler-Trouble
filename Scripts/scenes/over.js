@@ -26,22 +26,27 @@ var scenes;
         // Private Mathods
         OverScene.prototype._backButtonClick = function () {
             objects.Game.currentScene = config.Scene.PLAY;
+            this._endScreenMusic.stop();
+            this.removeAllChildren();
         };
-        // Public Methods
         // Initialize Game Variables and objects
         OverScene.prototype.Start = function () {
-            this._overLabel = new objects.Label("Game Over", "40px", "Consolas", "#000000", 320, 240, true);
+            this._someScore = 10;
+            this._endScreenMusic = createjs.Sound.play("endSceneMusic");
             this._backButton = new objects.Button(this.assetManager, "backButton", 320, 340);
+            this._overLabel = new objects.Label("Game Over", "40px", "Consolas", "#000000", 320, 240, true);
+            //Need to add "PlayAgainButton"
+            //this._replayButton = new objects.Button("playAgainButton", config.Screen.HALF_WIDTH, config.Screen.HALF_HEIGHT + 40, true);
             this.Main();
         };
         OverScene.prototype.Update = function () {
         };
-        // This is where the fun happens
         OverScene.prototype.Main = function () {
             // add the welcome,backButton,score,replay label to the scene
             this.addChild(this._overLabel);
             this.addChild(this._backButton);
             this.addChild(this._replayButton);
+            this.addChild(this._scoreLabel);
             // event listeners
             this._backButton.on("click", this._backButtonClick);
         };
