@@ -14,7 +14,7 @@ module math {
       // public methods
   
       // calculates the distance between two Vec2 objects
-      public static Distance(P1:Vec2, P2:Vec2):number {
+      public static Distance(P1:vec2, P2:vec2):number {
         return Math.floor(Math.sqrt(Math.pow(P2.x - P1.x, 2) + Math.pow(P2.y - P1.y, 2)));
       }
     }

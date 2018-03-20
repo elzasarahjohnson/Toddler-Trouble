@@ -6,7 +6,7 @@ var managers;
         Collision.prototype.CheckCollision = function (object1, object2) {
             // define points for both object1 and object2
             var P1 = new math.vec2(object1.x, object1.y);
-            var P2 = new Mmath.vec2(object2.x, object2.y);
+            var P2 = new math.vec2(object2.x, object2.y);
             // check if there is a collision
             if (math.vec2.Distance(P1, P2) < (object1.halfHeight + object2.halfHeight)) {
                 if (!object2.isColliding) {
