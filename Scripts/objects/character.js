@@ -44,16 +44,16 @@ var objects;
         Character.prototype.Start = function () {
             this.x = 320;
             this.y = 430;
-            this.bulletSpawn = new createjs.Point(this.y - 35, this.x);
+            this.bubbles = new createjs.Point(this.y - 35, this.x);
         };
         Character.prototype.Update = function () {
-            this.bulletSpawn.x = this.x;
-            this.bulletSpawn.y = this.y - 35;
+            this.bubbles.x = this.x;
+            this.bubbles.y = this.y - 35;
             this._checkBounds();
             // this.health-= 0.1;
         };
         Character.prototype.Fire = function () {
-            var bubble = new objects.Bubble(this.bulletSpawn);
+            var bubble = new objects.Bubble(this.bubbles);
             this.parent.addChild(bubble);
         };
         return Character;
