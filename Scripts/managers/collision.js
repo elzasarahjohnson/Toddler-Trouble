@@ -1,13 +1,31 @@
 var managers;
 (function (managers) {
-    //Collision Class - the class to provide collisions
     var Collision = /** @class */ (function () {
         function Collision() {
-            this.Start();
         }
-        Collision.prototype.Start = function () {
-        };
-        Collision.prototype.Update = function () {
+        Collision.prototype.CheckCollision = function (object1, object2) {
+            // define points for both object1 and object2
+            var P1 = new math.vec2(object1.x, object1.y);
+            var P2 = new math.vec2(object2.x, object2.y);
+            // check if there is a collision
+            if (math.vec2.Distance(P1, P2) < (object1.halfHeight + object2.halfHeight)) {
+                if (!object2.isColliding) {
+                    object2.isColliding = true;
+                    switch (object2.name) {
+                        case "cupcake":
+                            //createjs.Sound.play("yay");
+                            objects.Game.scoreBoardManager.Lives += 1;
+                            break;
+                        case "baby":
+                            //createjs.Sound.play("thunder");
+                            objects.Game.scoreBoardManager.Lives -= 1;
+                            break;
+                    }
+                }
+            }
+            else {
+                object2.isColliding = false;
+            }
         };
         return Collision;
     }());

@@ -50,11 +50,11 @@ var objects;
         // PUBLIC METHODS
         Baby.prototype.Start = function () {
             this.Reset();
-            this.bulletSpawn = new createjs.Point(this.y - 35, this.x);
+            //this.bubbles = new createjs.Point(this.y - 35, this.x);
         };
         Baby.prototype.Update = function () {
-            this.bulletSpawn.x = this.x;
-            this.bulletSpawn.y = this.y - 35;
+            //this.bubbles.x = this.x;
+            //this.bubbles.y = this.y - 35;
             this._checkBounds();
             this.ChaseTarget();
         };

@@ -10,7 +10,9 @@ module scenes {
     private _collision:managers.Collision;
     private _playerHealth:objects.Label;
 
-    private healthbar:objects.Label;
+    private healthBar:objects.Label;
+
+    public _nursery:objects.Nursery;
 
 
     // Public Properties
@@ -20,14 +22,14 @@ module scenes {
       super(assetManager);
 
       objects.Game.currentScene = currentScene;
-
+      this.setBounds(0, 0, config.Screen.WIDTH, config.Screen.HEIGHT);
       this.Start();
     }
 
     // Private Mathods
-    private _nextButtonClick():void {
+    /*private _nextButtonClick():void {
       objects.Game.currentScene = config.Scene.END;
-    }
+    }*/
 
     private _backButtonClick():void {
       objects.Game.currentScene = config.Scene.START;
@@ -38,8 +40,10 @@ module scenes {
 
     // Initialize Game Variables and objects
     public Start(): void {
+
+      this.healthBar = new objects.Label("Tank Game", "60px", "Dock51", "#228B22", 150, 40, true);
       this._playLabel = new objects.Label("Game Playing", "40px", "Consolas", "#000000", 320, 240, true);
-      this._nextButton = new objects.Button(this.assetManager, "nextButton", 500, 340);
+      //this._nextButton = new objects.Button(this.assetManager, "nextButton", 500, 340);
       this._backButton = new objects.Button(this.assetManager, "backButton", 140, 340);
 
       this._playerHealth = new objects.Label("Play Scene", "20px", "Consolas","#ff0000" , config.Screen.WIDTH*0.1, config.Screen.WIDTH*0.1, true);
@@ -65,7 +69,7 @@ module scenes {
         //this._mouse.RemoveAllListeners();
       }
 
-      //this._collision.CheckCollision(this._character, this._baby);
+      this._collision.CheckCollision(this._character, this._baby);
       return objects.Game.currentScene;
 
     }
@@ -84,9 +88,10 @@ module scenes {
       this.addChild(this._character);
       this.addChild(this._baby);
       this.addChild(this._playerHealth);
+      this.addChild(this._nursery);
 
       // event listeners
-      this._nextButton.on("click", this._nextButtonClick);
+      //this._nextButton.on("click", this._nextButtonClick);
 
       this._backButton.on("click", this._backButtonClick);
       //this._mouse.AddClickListener((event)=>{this._character.Fire();)}
