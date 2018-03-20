@@ -21,13 +21,7 @@ module scenes {
       this.Start();
     }
 
-    // Private Mathods
-    private _startButtonClick(event: createjs.MouseEvent):void {
-      objects.Game.currentScene = config.Scene.PLAY;
-      this._startScreenMusic.stop();
-      this.removeAllChildren();
-    }
-
+    
     // Initialize Game Variables and objects
     public Start(): void {
       console.log("Start Scene");
@@ -38,6 +32,13 @@ module scenes {
       this._welcomeLabel = new createjs.Bitmap("./Assets/images/TodTroLogo.png");
       this._startButton = new objects.Button(this.assetManager, "startButton", 320, 340);
       this.Main();
+    }
+    
+    // Private Methods
+    private _startButtonClick(event: createjs.MouseEvent):void {
+      objects.Game.currentScene = config.Scene.PLAY;
+      this._startScreenMusic.stop();
+      this.removeAllChildren();
     }
 
     public Update() {
