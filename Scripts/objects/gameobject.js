@@ -10,33 +10,36 @@ var __extends = (this && this.__extends) || (function () {
 })();
 var objects;
 (function (objects) {
-    var Nursery = /** @class */ (function (_super) {
-        __extends(Nursery, _super);
-        // CONSTRUCTORS 
-        function Nursery(assetManager) {
-            var _this = _super.call(this, assetManager.getResult("Nursery")) || this;
-            _this.Start();
+    var GameObject = /** @class */ (function (_super) {
+        __extends(GameObject, _super);
+        // PUBLIC PROPERTIES
+        // CONSTRUCTORS
+        function GameObject(imageString) {
+            var _this = _super.call(this, objects.Game.assetManager.getResult(imageString)) || this;
+            _this.isTrigger = false;
+            _this.name = imageString;
+            _this._initialize();
             return _this;
         }
-        Nursery.prototype._reset = function () {
-            this.y = 0;
+        // PROTECTED METHODS
+        GameObject.prototype._initialize = function () {
+            this.width = this.getBounds().width;
+            this.height = this.getBounds().height;
+            this.halfWidth = this.width * 0.5;
+            this.halfHeight = this.height * 0.5;
+            this.regX = this.halfWidth;
+            this.regY = this.halfHeight;
+            this.position = new createjs.Point(this.x, this.y);
+            this.isColliding = false;
         };
-        Nursery.prototype._checkBounds = function () {
-            if (this.y > 0) {
-                this._reset();
-            }
+        GameObject.prototype.Destroy = function () {
+            this.parent.removeChild(this);
         };
-        // PUBLIC METHODS
-        Nursery.prototype.Start = function () {
-            this._reset();
-            //this._dy = 5; // 5px per frame down
+        GameObject.prototype.OnCollisionEnter = function () {
+            this.isColliding = true;
         };
-        Nursery.prototype.Update = function () {
-            //this.y += this._dy;
-            this._checkBounds();
-        };
-        return Nursery;
-    }(createjs.Shape));
-    objects.Nursery = Nursery;
+        return GameObject;
+    }(createjs.Bitmap));
+    objects.GameObject = GameObject;
 })(objects || (objects = {}));
 //# sourceMappingURL=gameobject.js.map
