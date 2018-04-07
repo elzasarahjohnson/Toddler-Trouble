@@ -18,10 +18,10 @@ module scenes {
       // Public Properties
   
       // Constructor
-      constructor(currentScene: number, assetManager: createjs.LoadQueue) {
-        super(assetManager);
+      constructor(currentScene: number) {
+        super();
   
-        objects.Game.currentScene = currentScene;
+        managers.Game.currentScene = currentScene;
         this.setBounds(0, 0, config.Screen.WIDTH, config.Screen.HEIGHT);
         this.Start();
       }
@@ -32,7 +32,7 @@ module scenes {
       }*/
   
       private _backButtonClick():void {
-        objects.Game.currentScene = config.Scene.START;
+        managers.Game.currentScene = config.Scene.START;
       }
   
   
@@ -65,12 +65,12 @@ module scenes {
         this._playerHealth.text = "Health: " + this._character.health;
   
         if (this._character.health <= 0){
-          objects.Game.currentScene = config.Scene.OVER;
+          managers.Game.currentScene = config.Scene.OVER;
           //this._mouse.RemoveAllListeners();
         }
   
         this._collision.CheckCollision(this._character, this._baby);
-        return objects.Game.currentScene;
+        return managers.Game.currentScene;
   
       }
   

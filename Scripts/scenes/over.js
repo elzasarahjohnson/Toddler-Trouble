@@ -17,15 +17,15 @@ var scenes;
     var OverScene = /** @class */ (function (_super) {
         __extends(OverScene, _super);
         // Constructor
-        function OverScene(assetManager) {
-            var _this = _super.call(this, assetManager) || this;
+        function OverScene() {
+            var _this = _super.call(this) || this;
             _this._backButtonClick = _this._backButtonClick.bind(_this);
             _this.Start();
             return _this;
         }
         // Private Mathods
         OverScene.prototype._backButtonClick = function () {
-            objects.Game.currentScene = config.Scene.PLAY;
+            managers.Game.currentScene = config.Scene.PLAY;
             this._endScreenMusic.stop();
             this.removeAllChildren();
         };

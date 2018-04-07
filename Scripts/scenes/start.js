@@ -17,8 +17,8 @@ var scenes;
     var StartScene = /** @class */ (function (_super) {
         __extends(StartScene, _super);
         // Constructor
-        function StartScene(assetManager) {
-            var _this = _super.call(this, assetManager) || this;
+        function StartScene() {
+            var _this = _super.call(this) || this;
             //this._currentScene = currentScene;
             _this._startButton = _this._startButtonClick.bind(_this);
             _this.Start();
@@ -37,7 +37,7 @@ var scenes;
         };
         // Private Methods
         StartScene.prototype._startButtonClick = function (event) {
-            objects.Game.currentScene = config.Scene.PLAY;
+            managers.Game.currentScene = config.Scene.PLAY;
             this._startScreenMusic.stop();
             this.removeAllChildren();
         };
@@ -51,7 +51,7 @@ var scenes;
             this.addChild(this._welcomeLabel);
             this.addChild(this._startButton);
             this.addChild(this._background);
-            this._startButton.on("click", this._startButtonClick);
+            this._startButton.on("click", this._startButtonClick, this);
         };
         return StartScene;
     }(objects.Scene));

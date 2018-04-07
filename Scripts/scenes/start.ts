@@ -13,8 +13,8 @@ module scenes {
     private _startScreenMusic: createjs.AbstractSoundInstance;
 
     // Constructor
-    constructor(assetManager: createjs.LoadQueue) {
-      super(assetManager);
+    constructor() {
+      super();
 
       //this._currentScene = currentScene;
       this._startButton = this._startButtonClick.bind(this);
@@ -36,7 +36,7 @@ module scenes {
     
     // Private Methods
     private _startButtonClick(event: createjs.MouseEvent):void {
-      objects.Game.currentScene = config.Scene.PLAY;
+      managers.Game.currentScene = config.Scene.PLAY;
       this._startScreenMusic.stop();
       this.removeAllChildren();
     }
@@ -53,7 +53,7 @@ module scenes {
       this.addChild(this._startButton);
       this.addChild(this._background);
 
-      this._startButton.on("click", this._startButtonClick);
+      this._startButton.on("click", this._startButtonClick, this);
     }
   }
 }

@@ -6,10 +6,10 @@ module objects {
     public assetManager;
 
     // Constructor
-    constructor(assetManager: createjs.LoadQueue) {
+    constructor() {
       super();
 
-      this.assetManager = assetManager;
+      this.assetManager = managers.Game.assetManager;
     }
     // Private Methods
 

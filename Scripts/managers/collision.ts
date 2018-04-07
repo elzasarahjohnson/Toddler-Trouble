@@ -14,11 +14,11 @@ module managers {
             switch(object2.name) {
               case "cupcake":
                 //createjs.Sound.play("yay");
-                objects.Game.scoreBoardManager.Lives += 1;
+                managers.Game.scoreBoard.Lives += 1;
               break;
               case "baby":
                 //createjs.Sound.play("thunder");
-                objects.Game.scoreBoardManager.Lives -= 1;
+                managers.Game.scoreBoard.Lives -= 1;
               break;
             }
 

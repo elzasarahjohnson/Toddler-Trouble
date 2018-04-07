@@ -26,7 +26,10 @@
     { id: "startButton", src: "./Assets/images/Buttons/Play1.png" },
     { id: "nextButton", src: "./Assets/images/Buttons/Select1.png" },
     { id: "backButton", src: "./Assets/images/Buttons/back1.png" },
+    { id: "character", src: "./Assets/images/Characters/MiraTop.png"},
+    { id: "baby", src: "./Assets/images/Characters/AniBaby1.png"},
     { id: "startMusic", src:"./Assets/audio/startMusic.mp3"}
+    
 ];
 
 //assetManifest = [
@@ -41,6 +44,7 @@
   function Init():void {
     console.log("Initialization Started...");
     assetManager = new createjs.LoadQueue(); // creates the assetManager object
+   
     assetManager.installPlugin(createjs.Sound); // asset manager can also load sounds
     assetManager.loadManifest(assetManifest);
     assetManager.on("complete", Start, this);
@@ -49,13 +53,13 @@
 
   function Start():void {
     console.log("Starting Application...")
-
+    managers.Game.assetManager = assetManager; // passes a reference to the assetManager
     stage = new createjs.Stage(canvas);
     stage.enableMouseOver(20); // turn this on for buttons
     createjs.Ticker.framerate = 60; // 60 FPS
     createjs.Ticker.on("tick", Update);
 
-    objects.Game.currentScene = config.Scene.START;
+    managers.Game.currentScene = config.Scene.START;
     currentState = config.Scene.START;
     Main();
   }
@@ -63,7 +67,7 @@
   function Update():void {
     // if the scene that is playing returns another current scene
     // then call Main again and switch the scene
-    if(currentState!= objects.Game.currentScene) {
+    if(currentState!= managers.Game.currentScene) {
       Main();
     }
 
@@ -75,19 +79,21 @@
   function Main():void {
     stage.removeAllChildren();
 
-    switch(objects.Game.currentScene) {
+    switch(managers.Game.currentScene) {
       case config.Scene.START:
-        currentScene = new scenes.StartScene(assetManager);
+        currentScene = new scenes.StartScene();
       break;
       case config.Scene.PLAY:
-        currentScene = new scenes.PlayScene(objects.Game.currentScene,assetManager);
+        currentScene = new scenes.PlayScene();
       break;
       case config.Scene.OVER:
-        currentScene = new scenes.OverScene(assetManager);
+        currentScene = new scenes.OverScene();
       break;
     }
 
-    currentState = objects.Game.currentScene;
+    currentState = managers.Game.currentScene;
+    managers.Game.currentScene = currentState;
+    managers.Game.currentSceneObject = currentScene;
     stage.addChild(currentScene);
   }
 

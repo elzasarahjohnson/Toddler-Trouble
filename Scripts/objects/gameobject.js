@@ -15,7 +15,7 @@ var objects;
         // PUBLIC PROPERTIES
         // CONSTRUCTORS
         function GameObject(imageString) {
-            var _this = _super.call(this, objects.Game.assetManager.getResult(imageString)) || this;
+            var _this = _super.call(this, managers.Game.assetManager.getResult(imageString)) || this;
             _this.isTrigger = false;
             _this.name = imageString;
             _this._initialize();

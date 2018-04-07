@@ -14,9 +14,9 @@ var scenes;
         __extends(Level2Scene, _super);
         // Public Properties
         // Constructor
-        function Level2Scene(currentScene, assetManager) {
-            var _this = _super.call(this, assetManager) || this;
-            objects.Game.currentScene = currentScene;
+        function Level2Scene(currentScene) {
+            var _this = _super.call(this) || this;
+            managers.Game.currentScene = currentScene;
             _this.setBounds(0, 0, config.Screen.WIDTH, config.Screen.HEIGHT);
             _this.Start();
             return _this;
@@ -26,7 +26,7 @@ var scenes;
           objects.Game.currentScene = config.Scene.END;
         }*/
         Level2Scene.prototype._backButtonClick = function () {
-            objects.Game.currentScene = config.Scene.START;
+            managers.Game.currentScene = config.Scene.START;
         };
         // Public Methods
         // Initialize Game Variables and objects
@@ -49,11 +49,11 @@ var scenes;
             this._keyboard.Update();
             this._playerHealth.text = "Health: " + this._character.health;
             if (this._character.health <= 0) {
-                objects.Game.currentScene = config.Scene.OVER;
+                managers.Game.currentScene = config.Scene.OVER;
                 //this._mouse.RemoveAllListeners();
             }
             this._collision.CheckCollision(this._character, this._baby);
-            return objects.Game.currentScene;
+            return managers.Game.currentScene;
         };
         // This is where the fun happens
         Level2Scene.prototype.Main = function () {

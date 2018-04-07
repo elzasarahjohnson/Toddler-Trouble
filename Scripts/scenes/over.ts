@@ -14,8 +14,8 @@ module scenes {
     private _someScore: number;
 
     // Constructor
-    constructor(assetManager: createjs.LoadQueue) {
-      super(assetManager);
+    constructor() {
+      super();
 
       this._backButtonClick = this._backButtonClick.bind(this);
       this.Start();
@@ -23,7 +23,7 @@ module scenes {
 
     // Private Mathods
     private _backButtonClick():void {
-      objects.Game.currentScene = config.Scene.PLAY;
+      managers.Game.currentScene = config.Scene.PLAY;
       this._endScreenMusic.stop();
       this.removeAllChildren();
     }
