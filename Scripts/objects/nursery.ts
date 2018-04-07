@@ -1,12 +1,12 @@
 module objects {
 
-    export class Nursery extends createjs.Shape {
+    export class Nursery extends objects.GameObject {
         // PRIVATE INSTANCE VARIABLES 
         private _dy: number;
 
         // CONSTRUCTORS 
         constructor(assetManager: createjs.LoadQueue) {
-            super(assetManager.getResult("Nursery"));
+            super("Nursery");
             this.Start();
         }
 

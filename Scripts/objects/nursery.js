@@ -14,7 +14,7 @@ var objects;
         __extends(Nursery, _super);
         // CONSTRUCTORS 
         function Nursery(assetManager) {
-            var _this = _super.call(this, assetManager.getResult("Nursery")) || this;
+            var _this = _super.call(this, "Nursery") || this;
             _this.Start();
             return _this;
         }
@@ -36,7 +36,7 @@ var objects;
             this._checkBounds();
         };
         return Nursery;
-    }(createjs.Shape));
+    }(objects.GameObject));
     objects.Nursery = Nursery;
 })(objects || (objects = {}));
 //# sourceMappingURL=nursery.js.map
