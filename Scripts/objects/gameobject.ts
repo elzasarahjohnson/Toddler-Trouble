@@ -1,51 +1,34 @@
 module objects {
 
-    export abstract class GameObject extends createjs.Bitmap {
-      // PRIVATE INSTANCE VARIABLES
-      public halfHeight:number;
-      public halfWidth:number;
-      public height:number;
-      public horizontalSpeed:number;
-      public isColliding:boolean;
-      public position:createjs.Point;
-      public verticalSpeed:number;
-      public width:number;
-      isTrigger:boolean = false;
-  
-      // PUBLIC PROPERTIES
-  
-      // CONSTRUCTORS
-      constructor(imageString: string) {
-        super(objects.Game.assetManager.getResult(imageString));
-        this.name = imageString;
-  
-        this._initialize();
+  export class Nursery extends createjs.Shape {
+      // PRIVATE INSTANCE VARIABLES 
+      private _dy: number;
+
+      // CONSTRUCTORS 
+      constructor(assetManager: createjs.LoadQueue) {
+          super(assetManager.getResult("Nursery"));
+          this.Start();
       }
-      // PROTECTED METHODS
-  
-      private _initialize(): void {
-        this.width = this.getBounds().width;
-        this.height = this.getBounds().height;
-        this.halfWidth = this.width * 0.5;
-        this.halfHeight = this.height * 0.5;
-        this.regX = this.halfWidth;
-        this.regY = this.halfHeight;
-        this.position = new createjs.Point(this.x, this.y);
-        this.isColliding = false;
+
+      private _reset(): void {
+          this.y = 0;
       }
-  
-  
-      public Destroy(): void {
-        this.parent.removeChild(this);
+
+      private _checkBounds(): void {
+          if (this.y > 0) {
+              this._reset();
+          }
       }
+
       // PUBLIC METHODS
-      public abstract Start(): void;
-  
-      public abstract Update():void;
-  
-      public OnCollisionEnter(): void {
-        this.isColliding = true;
+      public Start(): void {
+          this._reset();
+          //this._dy = 5; // 5px per frame down
       }
-    }
+
+      public Update(): void {
+          //this.y += this._dy;
+          this._checkBounds();
+      }
   }
-  
+}

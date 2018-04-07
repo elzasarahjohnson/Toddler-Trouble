@@ -10,11 +10,11 @@ var __extends = (this && this.__extends) || (function () {
 })();
 var scenes;
 (function (scenes) {
-    var PlayScene = /** @class */ (function (_super) {
-        __extends(PlayScene, _super);
+    var Level2Scene = /** @class */ (function (_super) {
+        __extends(Level2Scene, _super);
         // Public Properties
         // Constructor
-        function PlayScene(currentScene, assetManager) {
+        function Level2Scene(currentScene, assetManager) {
             var _this = _super.call(this, assetManager) || this;
             objects.Game.currentScene = currentScene;
             _this.setBounds(0, 0, config.Screen.WIDTH, config.Screen.HEIGHT);
@@ -25,12 +25,12 @@ var scenes;
         /*private _nextButtonClick():void {
           objects.Game.currentScene = config.Scene.END;
         }*/
-        PlayScene.prototype._backButtonClick = function () {
+        Level2Scene.prototype._backButtonClick = function () {
             objects.Game.currentScene = config.Scene.START;
         };
         // Public Methods
         // Initialize Game Variables and objects
-        PlayScene.prototype.Start = function () {
+        Level2Scene.prototype.Start = function () {
             this.healthBar = new objects.Label("Tank Game", "60px", "Dock51", "#228B22", 150, 40, true);
             this._playLabel = new objects.Label("Game Playing", "40px", "Consolas", "#000000", 320, 240, true);
             //this._nextButton = new objects.Button(this.assetManager, "nextButton", 500, 340);
@@ -42,7 +42,7 @@ var scenes;
             this._collision = new managers.Collision();
             this.Main();
         };
-        PlayScene.prototype.Update = function () {
+        Level2Scene.prototype.Update = function () {
             this._character.Update();
             this._baby.Update();
             //this._mouse.Update();
@@ -54,17 +54,9 @@ var scenes;
             }
             this._collision.CheckCollision(this._character, this._baby);
             return objects.Game.currentScene;
-            // if lives fall below zero switch scenes to the game over scene
-            if (this.ScoreBoard.Lives <= 0) {
-                managers.Game.currentScene = config.Scene.OVER;
-            }
-            //Switch to Level 2 if Score reaches 500
-            if (this._scoreBoard.Score >= 500) {
-                managers.Game.currentScene = config.Scene.LEVEL2;
-            }
         };
         // This is where the fun happens
-        PlayScene.prototype.Main = function () {
+        Level2Scene.prototype.Main = function () {
             // add the welcome label to the scene
             this.addChild(this._playLabel);
             // add the nextButton to the scene
@@ -80,8 +72,8 @@ var scenes;
             this._backButton.on("click", this._backButtonClick);
             //this._mouse.AddClickListener((event)=>{this._character.Fire();)}
         };
-        return PlayScene;
+        return Level2Scene;
     }(objects.Scene));
-    scenes.PlayScene = PlayScene;
+    scenes.Level2Scene = Level2Scene;
 })(scenes || (scenes = {}));
-//# sourceMappingURL=play.js.map
+//# sourceMappingURL=level2.js.map

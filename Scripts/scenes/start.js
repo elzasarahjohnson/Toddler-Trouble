@@ -24,12 +24,6 @@ var scenes;
             _this.Start();
             return _this;
         }
-        // Private Mathods
-        StartScene.prototype._startButtonClick = function (event) {
-            objects.Game.currentScene = config.Scene.PLAY;
-            this._startScreenMusic.stop();
-            this.removeAllChildren();
-        };
         // Initialize Game Variables and objects
         StartScene.prototype.Start = function () {
             console.log("Start Scene");
@@ -40,6 +34,12 @@ var scenes;
             this._welcomeLabel = new createjs.Bitmap("./Assets/images/TodTroLogo.png");
             this._startButton = new objects.Button(this.assetManager, "startButton", 320, 340);
             this.Main();
+        };
+        // Private Methods
+        StartScene.prototype._startButtonClick = function (event) {
+            objects.Game.currentScene = config.Scene.PLAY;
+            this._startScreenMusic.stop();
+            this.removeAllChildren();
         };
         StartScene.prototype.Update = function () {
             //return this._currentScene;

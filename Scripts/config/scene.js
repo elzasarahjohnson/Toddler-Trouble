@@ -5,7 +5,8 @@ var config;
         }
         Scene.START = 0;
         Scene.PLAY = 1;
-        Scene.END = 2;
+        Scene.LEVEL2 = 3;
+        Scene.OVER = 2;
         return Scene;
     }());
     config.Scene = Scene;
