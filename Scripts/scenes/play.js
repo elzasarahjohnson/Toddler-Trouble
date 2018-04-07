@@ -55,7 +55,7 @@ var scenes;
             this._collision.CheckCollision(this._character, this._baby);
             return objects.Game.currentScene;
             // if lives fall below zero switch scenes to the game over scene
-            if (this.ScoreBoard.Lives <= 0) {
+            if (this._scoreBoard.Lives <= 0) {
                 managers.Game.currentScene = config.Scene.OVER;
             }
             //Switch to Level 2 if Score reaches 500

@@ -9,7 +9,7 @@ module scenes {
     private _keyboard:managers.Keyboard;
     private _collision:managers.Collision;
     private _playerHealth:objects.Label;
-
+    private _scoreBoard:managers.ScoreBoard;
     private healthBar:objects.Label;
 
     public _nursery:objects.Nursery;
@@ -73,7 +73,7 @@ module scenes {
       return objects.Game.currentScene;
 
       // if lives fall below zero switch scenes to the game over scene
-      if(this.ScoreBoard.Lives <= 0) {
+      if(this._scoreBoard.Lives <= 0) {
         managers.Game.currentScene = config.Scene.OVER;
       }
 
