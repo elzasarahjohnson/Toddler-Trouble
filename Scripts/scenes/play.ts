@@ -65,7 +65,7 @@ module scenes {
       this._playerHealth.text = "Health: " + this._character.health;
 
       if (this._character.health <= 0){
-        objects.Game.currentScene = config.Scene.END;
+        objects.Game.currentScene = config.Scene.OVER;
         //this._mouse.RemoveAllListeners();
       }
 

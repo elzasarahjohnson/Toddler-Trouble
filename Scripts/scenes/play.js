@@ -49,7 +49,7 @@ var scenes;
             this._keyboard.Update();
             this._playerHealth.text = "Health: " + this._character.health;
             if (this._character.health <= 0) {
-                objects.Game.currentScene = config.Scene.END;
+                objects.Game.currentScene = config.Scene.OVER;
                 //this._mouse.RemoveAllListeners();
             }
             this._collision.CheckCollision(this._character, this._baby);

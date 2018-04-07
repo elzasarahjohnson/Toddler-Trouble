@@ -82,7 +82,7 @@
       case config.Scene.PLAY:
         currentScene = new scenes.PlayScene(objects.Game.currentScene,assetManager);
       break;
-      case config.Scene.END:
+      case config.Scene.OVER:
         currentScene = new scenes.OverScene(assetManager);
       break;
     }
