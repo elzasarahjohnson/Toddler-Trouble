@@ -38,6 +38,7 @@ var objects;
         GameObject.prototype.OnCollisionEnter = function () {
             this.isColliding = true;
         };
+        GameObject.assetManager = new managers.AssetManager();
         return GameObject;
     }(createjs.Bitmap));
     objects.GameObject = GameObject;

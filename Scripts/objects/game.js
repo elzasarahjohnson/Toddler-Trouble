@@ -4,7 +4,6 @@ var objects;
     var Game = /** @class */ (function () {
         function Game() {
         }
-        Game.assetManager = new managers.AssetManager();
         return Game;
     }());
     objects.Game = Game;

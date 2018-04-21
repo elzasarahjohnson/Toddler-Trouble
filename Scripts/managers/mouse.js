@@ -10,8 +10,8 @@ var managers;
         }
         // PUBLIC METHODS
         Mouse.prototype.PlayerFollowMouse = function () {
-            this._dx = objects.Game.stage.mouseX - this.player.x;
-            this._dy = objects.Game.stage.mouseY - this.player.y;
+            this._dx = objects.GameObject.stage.mouseX - this.player.x;
+            this._dy = objects.GameObject.stage.mouseY - this.player.y;
             // find the angle of rotation
             this.direction = Math.atan2(this._dy, this._dx) * (180 / Math.PI) + 90;
             this.player.rotation = this.direction;
