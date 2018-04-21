@@ -21,7 +21,7 @@ var scenes;
             _this.Start();
             return _this;
         }
-        // Private Mathods
+        // Private Methods
         /*private _nextButtonClick():void {
           objects.Game.currentScene = config.Scene.END;
         }*/
@@ -31,17 +31,14 @@ var scenes;
         // Public Methods
         // Initialize Game Variables and objects
         PlayScene.prototype.Start = function () {
-            this._gameMusic = createjs.Sound.play("gameMusic");
-            this._gameMusic.loop = -1; // play forever
-            this._gameMusic.volume = 0.3;
             this.healthBar = new objects.Label("Tank Game", "60px", "Dock51", "#228B22", 150, 40, true);
             //this._playLabel = new objects.Label("Game Playing", "40px", "Consolas", "#000000", 320, 240, true);
             //this._nextButton = new objects.Button(this.assetManager, "nextButton", 500, 340);
-            this._background = new createjs.Bitmap("./Assets/images/Backgrounds/Nursery.png");
             this._backButton = new objects.Button(this.assetManager, "backButton", 140, 340);
             this._playerHealth = new objects.Label("Play Scene", "20px", "Consolas", "#ff0000", config.Screen.WIDTH * 0.1, config.Screen.WIDTH * 0.1, true);
             this._character = new objects.Character();
-            // this._baby = new objects.Baby(this._character);
+            //this._baby = new objects.Baby();
+            this._baby = new objects.Baby(this._character);
             this._keyboard = new managers.Keyboard(this._character);
             this._scoreBoard = new managers.ScoreBoard();
             this._collision = new managers.Collision();
@@ -62,7 +59,6 @@ var scenes;
             // if lives fall below zero switch scenes to the game over scene
             if (this._scoreBoard.Lives <= 0) {
                 managers.Game.currentScene = config.Scene.OVER;
-                this._gameMusic.stop();
             }
             //Switch to Level 2 if Score reaches 500
             if (this._scoreBoard.Score >= 500) {
@@ -75,7 +71,6 @@ var scenes;
             this.addChild(this._playLabel);
             // add the nextButton to the scene
             this.addChild(this._nextButton);
-            this.addChild(this._background);
             // add the backButton to the scene
             this.addChild(this._backButton);
             this.addChild(this._character);

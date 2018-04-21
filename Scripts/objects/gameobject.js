@@ -32,13 +32,12 @@ var objects;
             this.position = new createjs.Point(this.x, this.y);
             this.isColliding = false;
         };
-        GameObject.prototype.Destroy = function () {
+        GameObject.prototype.Sleep = function () {
             this.parent.removeChild(this);
         };
         GameObject.prototype.OnCollisionEnter = function () {
             this.isColliding = true;
         };
-        GameObject.assetManager = new managers.AssetManager();
         return GameObject;
     }(createjs.Bitmap));
     objects.GameObject = GameObject;

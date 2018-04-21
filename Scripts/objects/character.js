@@ -37,7 +37,7 @@ var objects;
         Character.prototype.OnCollisionEnter = function () {
             this.health--;
             if (this.health <= 0) {
-                this.Destroy();
+                this.Sleep();
             }
         };
         // PUBLIC METHODS
@@ -53,7 +53,6 @@ var objects;
             // this.health-= 0.1;
         };
         Character.prototype.Fire = function () {
-            console.log("Bubble fired");
             var bubble = new objects.Bubble(this.bubbles);
             this.parent.addChild(bubble);
         };

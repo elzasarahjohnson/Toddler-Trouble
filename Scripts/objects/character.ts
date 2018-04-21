@@ -34,7 +34,7 @@ module objects {
     public OnCollisionEnter():void{
       this.health--;
       if (this.health <= 0){
-        this.Destroy();      
+        this.Sleep();      
       }
     }
 
@@ -53,7 +53,6 @@ module objects {
     }
     
     public Fire():void{
-      console.log("Bubble fired")
       let bubble = new objects.Bubble(this.bubbles);
       this.parent.addChild(bubble);
     }

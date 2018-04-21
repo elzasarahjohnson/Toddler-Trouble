@@ -40,11 +40,35 @@ var objects;
         };
         Baby.prototype.Reset = function () {
             this.health = 1;
+            var borderRandNum = Math.random();
+            var spawnPoint = new objects.vec2(0, 0);
+            if (borderRandNum > 0.75) {
+                //top
+                spawnPoint.x = Math.random() * this.screenWidth;
+                spawnPoint.y = -0.1 * this.screenHeight;
+            }
+            else if (borderRandNum > 0.50) {
+                //left
+                spawnPoint.x = -0.1 * this.screenWidth;
+                spawnPoint.y = Math.random() * this.screenHeight;
+            }
+            else if (borderRandNum > 0.25) {
+                //right
+                spawnPoint.x = 1.1 * this.screenWidth;
+                spawnPoint.y = Math.random() * this.screenHeight;
+            }
+            else {
+                //bottom
+                spawnPoint.x = Math.random() * this.screenWidth;
+                spawnPoint.y = 1.1 * this.screenHeight;
+            }
+            this.x = spawnPoint.x;
+            this.y = spawnPoint.y;
         };
         Baby.prototype.GetHit = function () {
             this.health--;
             if (this.health <= 0) {
-                this.Destroy();
+                this.Sleep();
             }
         };
         // PUBLIC METHODS
