@@ -11,6 +11,8 @@ module objects {
       public verticalSpeed:number;
       public width:number;
       isTrigger:boolean = false;
+      public static assetManager:managers.AssetManager = new managers.AssetManager();
+      public static stage:createjs.Stage;
   
       // PUBLIC PROPERTIES
   
