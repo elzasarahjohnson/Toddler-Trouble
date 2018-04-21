@@ -6,6 +6,8 @@ module managers {
     public moveBackward: boolean;
     public moveForward: boolean;
     public moveLeft: boolean;
+    public turnLeft: boolean;
+    public turnRight: boolean;    
     public moveRight: boolean;
     public paused: boolean;
 
@@ -28,7 +30,6 @@ module managers {
           this.moveForward = true;
           break;
         case config.Key.LEFT_ARROW:
-        case config.Key.A:
           this.moveLeft = true;
           break;
         case config.Key.DOWN_ARROW:
@@ -36,11 +37,16 @@ module managers {
           this.moveBackward = true;
           break;
         case config.Key.RIGHT_ARROW:
-        case config.Key.D:
           this.moveRight = true;
           break;
         case 81: /* pause */
           this.paused = (this.paused) ? false : true;
+          break;
+        case config.Key.A:
+          this.turnLeft = true;
+          break;
+        case config.Key.D:
+          this.turnRight = true;
           break;
       }
     }
@@ -52,7 +58,6 @@ module managers {
           this.moveForward = false;
           break;
         case config.Key.LEFT_ARROW:
-        case config.Key.A:
           this.moveLeft = false;
           break;
         case config.Key.DOWN_ARROW:
@@ -60,8 +65,13 @@ module managers {
           this.moveBackward = false;
           break;
         case config.Key.RIGHT_ARROW:
-        case config.Key.D:
           this.moveRight = false;
+          break;
+        case config.Key.A:
+          this.turnLeft = false;
+          break;
+        case config.Key.D:
+          this.turnRight = false;
           break;
       }
     }
@@ -82,6 +92,13 @@ module managers {
       }
       if(this.moveBackward) {
         this.player.y += 5;
+      }
+
+      if(this.turnLeft) {
+        this.player.rotation -= 5;
+      }
+      if(this.turnRight) {
+        this.player.rotation += 5;
       }
     }
 
