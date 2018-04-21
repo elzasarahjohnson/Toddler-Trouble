@@ -17,7 +17,7 @@
     var debugCanvas;
     var gameCanvas;
     assetManifest = [
-        { id: "clickMeButton", src: "./Assets/images/TodTroLogo.png" },
+        { id: "logo", src: "./Assets/images/TodTroLogo.png" },
         { id: "startButton", src: "./Assets/images/Buttons/Play1.png" },
         { id: "nextButton", src: "./Assets/images/Buttons/Select1.png" },
         { id: "backButton", src: "./Assets/images/Buttons/back1.png" },

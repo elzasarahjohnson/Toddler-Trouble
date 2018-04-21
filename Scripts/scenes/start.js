@@ -32,7 +32,7 @@ var scenes;
             this._startScreenMusic.volume = 0.3;
             this._background = new createjs.Bitmap("./Assets/images/Backgrounds/Nursery.png");
             this._welcomeLabel = new createjs.Bitmap("./Assets/images/TodTroLogo.png");
-            this._startButton = new objects.Button(this.assetManager, "startButton", 320, 340);
+            this._startButton = new objects.Button(this.assetManager, "startButton", 500, 400);
             this.Main();
             console.log("Loaded Start Scene");
         };
