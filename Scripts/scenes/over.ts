@@ -33,8 +33,8 @@ module scenes {
     public Start(): void {
       this._someScore = 10;
       this._endScreenMusic = createjs.Sound.play("endSceneMusic");
-      this._background = new createjs.Bitmap(this.assetManager.getResult("endBackground"));
-      this._backButton = new objects.Button(this.assetManager, "backButton", 320, 340);
+      this._background = new createjs.Bitmap("./Assets/images/Backgrounds/endScene.png");
+      this._backButton = new objects.Button(this.assetManager, "tryAgain", 320, 340);
       
 
       //Need to add "PlayAgainButton"

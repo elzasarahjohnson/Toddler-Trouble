@@ -53,6 +53,7 @@ var objects;
             // this.health-= 0.1;
         };
         Character.prototype.Fire = function () {
+            console.log("Bubble fired");
             var bubble = new objects.Bubble(this.bubbles);
             this.parent.addChild(bubble);
         };

@@ -26,6 +26,7 @@
     { id: "startButton", src: "./Assets/images/Buttons/Play1.png" },
     { id: "nextButton", src: "./Assets/images/Buttons/Select1.png" },
     { id: "backButton", src: "./Assets/images/Buttons/back1.png" },
+    { id: "tryAgain", src: "./Assets/images/Buttons/Try1.png" },
     { id: "character", src: "./Assets/images/Characters/MiraTop.png"},
     { id: "baby", src: "./Assets/images/Characters/AniBaby1.png"},
     { id: "startMusic", src:"./Assets/audio/startMusic.mp3"},
