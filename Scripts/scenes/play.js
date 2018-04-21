@@ -32,7 +32,7 @@ var scenes;
         // Initialize Game Variables and objects
         PlayScene.prototype.Start = function () {
             this.healthBar = new objects.Label("Tank Game", "60px", "Dock51", "#228B22", 150, 40, true);
-            this._playLabel = new objects.Label("Game Playing", "40px", "Consolas", "#000000", 320, 240, true);
+            //this._playLabel = new objects.Label("Game Playing", "40px", "Consolas", "#000000", 320, 240, true);
             //this._nextButton = new objects.Button(this.assetManager, "nextButton", 500, 340);
             this._backButton = new objects.Button(this.assetManager, "backButton", 140, 340);
             this._playerHealth = new objects.Label("Play Scene", "20px", "Consolas", "#ff0000", config.Screen.WIDTH * 0.1, config.Screen.WIDTH * 0.1, true);
