@@ -8,21 +8,21 @@ module managers {
   
       // PUBLIC INSTANCE VARIABLES
       public direction:number;
-      public player:objects.GameObject;
+      public player:objects.Character;
       private listeners = [];
       public area:HTMLElement;
   
   
       // CONSTRUCTOR 
-      constructor(player:objects.GameObject, area:HTMLElement) {
+      constructor(player:objects.Character, area:HTMLElement) {
         this.player = player;
         this.area = area;
       }
   
       // PUBLIC METHODS
        public PlayerFollowMouse():void {
-        this._dx = objects.GameObject.stage.mouseX - this.player.x;
-        this._dy = objects.GameObject.stage.mouseY - this.player.y;
+        this._dx = objects.Character.stage.mouseX - this.player.x;
+        this._dy = objects.Character.stage.mouseY - this.player.y;
         // find the angle of rotation
         this.direction = Math.atan2(this._dy, this._dx) * (180 / Math.PI) + 90;
          this.player.rotation = this.direction;
