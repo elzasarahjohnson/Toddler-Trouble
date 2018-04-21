@@ -28,8 +28,11 @@
     { id: "backButton", src: "./Assets/images/Buttons/back1.png" },
     { id: "character", src: "./Assets/images/Characters/MiraTop.png"},
     { id: "baby", src: "./Assets/images/Characters/AniBaby1.png"},
-    { id: "startMusic", src:"./Assets/audio/startMusic.mp3"}
-    
+    { id: "startMusic", src:"./Assets/audio/startMusic.mp3"},
+    { id: "endSceneMusic", src:"./Assets/audio/endMusic.mp3"},
+    { id: "endBackground", src:"./Assets/images/Backgrounds/endScene.png"},
+    { id: "nursery", src:"./Assets/images/Backgrounds/Nursery.png"}
+        
 ];
 
 //assetManifest = [

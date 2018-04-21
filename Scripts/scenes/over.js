@@ -33,10 +33,10 @@ var scenes;
         OverScene.prototype.Start = function () {
             this._someScore = 10;
             this._endScreenMusic = createjs.Sound.play("endSceneMusic");
+            this._background = new createjs.Bitmap(this.assetManager.getResult("endBackground"));
             this._backButton = new objects.Button(this.assetManager, "backButton", 320, 340);
-            this._overLabel = new objects.Label("Game Over", "40px", "Consolas", "#000000", 320, 240, true);
             //Need to add "PlayAgainButton"
-            //this._replayButton = new objects.Button("playAgainButton", config.Screen.HALF_WIDTH, config.Screen.HALF_HEIGHT + 40, true);
+            //this._replayButton = new objects.Button(this.assetManager, "tryAgain", config.Screen.HALF_WIDTH, config.Screen.HALF_HEIGHT + 40, true);
             this.Main();
         };
         OverScene.prototype.Update = function () {
